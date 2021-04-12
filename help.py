@@ -23,7 +23,8 @@ exec supports {}.
 
 *📨 exec@queue.bot*
 """.format(langs)
-        e = discord.Embed(name="exec help", color=discord.Color(9510889), description=description)
-        e.set_author(name="exec", icon_url="https://cdn.discordapp.com/avatars/830972631917789265"
+        e = discord.Embed(name="", color=discord.Color(9510889), description=description)
+        e.add_field(name="exec help", value=description)
+        e.set_footer(text="exec", icon_url="https://cdn.discordapp.com/avatars/830972631917789265"
                                            "/5e97d058954d564c39b6e1d91ad09e39.png")
         await ctx.send(embed=e)
