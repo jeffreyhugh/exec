@@ -18,5 +18,6 @@ class Status(commands.Cog):
         e = discord.Embed(name="exec log", description="joined guild")
         e.add_field(name="name", value=guild.name.lower())
         e.add_field(name="members", value=str(len(guild.members)))
+        await self.logger.log_embed(e)
 
     # TODO add event queue for log messages (similar to Neptune)
