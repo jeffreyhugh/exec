@@ -40,7 +40,7 @@ class Playground(commands.Cog):
     async def log(self, message_id, language):
         self.c.execute('''INSERT INTO playground
                         (executed_at, message_id, lang)
-                        VALUES(?, ?, ?)''', (datetime.datetime.now().timestamp(), message_id, language))
+                        VALUES(?, ?, ?)''', (datetime.datetime.now().timestamp(), str(message_id), language.lower()))
         self.conn.commit()
 
         e = discord.Embed(title="exec log", description="new snippet executed", color=discord.Color(9510889),
@@ -151,6 +151,7 @@ class Playground(commands.Cog):
                 msg = await ctx.send("<@{}>".format(ctx.author.id),
                                      file=discord.File("playground/{}.log".format(ctx.message.id)))
                 await msg.add_reaction("🗑️")
+                await self.log(ctx.message.id, lang)
 
             try:
                 os.remove("playground/{}.log".format(ctx.message.id))
