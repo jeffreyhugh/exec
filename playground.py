@@ -117,7 +117,7 @@ class Playground(commands.Cog):
                                                        cpu_shares=512,
                                                        mem_limit="512m",
                                                        device_read_bps={"Path": "/dev/sda", "Rate": "1m"},
-                                                       nework_disabled=True)
+                                                       nework_enabled=False)
 
             t = threading.Thread(target=get_logs_from_container,
                                  name=str(ctx.message.id),
