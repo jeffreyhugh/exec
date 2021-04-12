@@ -12,7 +12,7 @@ class Help(commands.Cog):
         self.rust = "<:rust:831116517679693825>"
         self.bash = "<:bash:831116845133332500>"
 
-    @commands.command(name=" help")
+    @commands.command(name="help")
     async def _help(self, ctx):
         langs = "{}, {}, {}, {}, and {}".format(self.python, self.go, self.c, self.rust, self.bash)
         description = """exec runs code snippets sent through Discord. Each snippet is completely isolated in its own container and runs for a maximum of 45 seconds.

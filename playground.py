@@ -47,7 +47,7 @@ class Playground(commands.Cog):
                           timestamp=datetime.datetime.now())
         e.add_field(name="language", value=language, inline=False)
         e.add_field(name="message id", value=message_id, inline=False)
-        e.set_author(name="exec", icon_url="https://cdn.discordapp.com/avatars/830972631917789265"
+        e.set_footer(text="exec", icon_url="https://cdn.discordapp.com/avatars/830972631917789265"
                                                "/5e97d058954d564c39b6e1d91ad09e39.png")
         await self.logger.log_embed(e)
 
