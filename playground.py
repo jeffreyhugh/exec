@@ -51,7 +51,7 @@ class Playground(commands.Cog):
                                                "/5e97d058954d564c39b6e1d91ad09e39.png")
         await self.logger.log_embed(e)
 
-    @commands.command(name="c", aliases=["cute"])
+    @commands.command(name="")
     @commands.max_concurrency(1, commands.BucketType.user, wait=False)
     async def _exec(self, ctx):
         """Execute a code snippet and post the result."""
