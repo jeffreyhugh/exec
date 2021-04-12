@@ -4,7 +4,7 @@ from discord.ext import commands
 
 
 def main():
-    bot = commands.Bot(command_prefix="exe")
+    bot = commands.Bot(command_prefix="exec")
     bot.remove_command("help")
 
     env = os.getenv("EXECBOT_ENV_TYPE")
