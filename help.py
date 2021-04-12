@@ -20,10 +20,8 @@ class Help(commands.Cog):
 To run a snippet, type `exec ` followed by a syntax-highlighted code block (e.g. Python is ` ```py`). After the code inside the block finishes running, the first few lines of the log will be posted, along with the entire `.log` file.
 
 exec supports {}. 
-
-*📨 exec@queue.bot*
 """.format(langs)
         e = discord.Embed(name="exec help", color=discord.Color(9510889), description=description)
-        e.set_footer(text="exec", icon_url="https://cdn.discordapp.com/avatars/830972631917789265"
+        e.set_footer(text="exec@queue.bot", icon_url="https://cdn.discordapp.com/avatars/830972631917789265"
                                            "/5e97d058954d564c39b6e1d91ad09e39.png")
         await ctx.send(embed=e)
