@@ -17,7 +17,7 @@ class Status(commands.Cog):
 
     @commands.Cog.listener("on_guild_join")
     async def on_guild_join(self, guild):
-        e = discord.Embed(title="exec log", description="joined guild", color=discord.Color(9510889),
+        e = discord.Embed(title="joined guild", color=discord.Color(9510889),
                           timestamp=datetime.datetime.now())
         e.add_field(name="name", value=guild.name.lower())
         e.add_field(name="members", value=str(guild.member_count))
