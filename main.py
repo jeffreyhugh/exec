@@ -9,13 +9,13 @@ def main():
 
     env = os.getenv("EXECBOT_ENV_TYPE")
     if env.upper() == "MASTER":
+        from help import Help
         from status import Status
         from playground import Playground
-        from help import Help
 
+        bot.add_cog(Help(bot))
         bot.add_cog(Status(bot))
         bot.add_cog(Playground(bot))
-        bot.add_cog(Help(bot))
 
     else:
         print("Unknown environment ({})".format(env))
