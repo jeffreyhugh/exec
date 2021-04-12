@@ -51,7 +51,7 @@ class Playground(commands.Cog):
                                                "/5e97d058954d564c39b6e1d91ad09e39.png")
         await self.logger.log_embed(e)
 
-    @commands.command(name="")
+    @commands.command(name="ute")
     @commands.max_concurrency(1, commands.BucketType.user, wait=False)
     async def _exec(self, ctx):
         """Execute a code snippet and post the result."""
@@ -146,11 +146,9 @@ class Playground(commands.Cog):
                 await ctx.message.add_reaction("❌")
                 await ctx.send("<@{}> Your program was terminated because it took too long".format(ctx.author.id))
             else:
-                with open("playground/{}.log".format(ctx.message.id)) as f:
-                    output = f.read()
                 await ctx.message.remove_reaction("⏳", ctx.guild.me)
                 await ctx.message.add_reaction("✅")
-                msg = await ctx.send("<@{}> ```{}```".format(ctx.author.id, output[0:800]),
+                msg = await ctx.send("<@{}>".format(ctx.author.id),
                                      file=discord.File("playground/{}.log".format(ctx.message.id)))
                 await msg.add_reaction("🗑️")
 

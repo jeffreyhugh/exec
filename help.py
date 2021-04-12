@@ -12,12 +12,12 @@ class Help(commands.Cog):
         self.rust = "<:rust:831116517679693825>"
         self.bash = "<:bash:831116845133332500>"
 
-    @commands.command(name="chelp", aliases=["cute help"])
+    @commands.command(name="help")
     async def _help(self, ctx):
         langs = "{}, {}, {}, {}, and {}".format(self.python, self.go, self.c, self.rust, self.bash)
-        description = """exec runs code snippets sent through Discord. Each snippet is completely isolated in its own container and may run for a maximum of 45 seconds.
+        description = """exec runs code snippets sent through Discord. Each snippet is completely isolated in its own container and runs for a maximum of 45 seconds.
 
-To run a snippet, type `exec ` followed by a syntax-highlighted code block (e.g. Python is ` ```py`). After the code inside the block finishes running, the first few lines of the log will be posted, along with the entire `.log` file.
+To run a snippet, type `execute ` (note the space) followed by a syntax-highlighted code block (e.g. Python is ` ```py`). After the code inside the block finishes running, entire `.log` file will be posted.
 
 exec supports {}. 
 """.format(langs)
