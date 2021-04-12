@@ -144,12 +144,11 @@ class Playground(commands.Cog):
             if was_killed:
                 await ctx.message.remove_reaction("⏳", ctx.guild.me)
                 await ctx.message.add_reaction("❌")
-                await ctx.send("<@{}> Your program was terminated because it took too long".format(ctx.author.id))
+                await ctx.reply("Your program was terminated because it took too long".format(ctx.author.id))
             else:
                 await ctx.message.remove_reaction("⏳", ctx.guild.me)
                 await ctx.message.add_reaction("✅")
-                msg = await ctx.send("<@{}>".format(ctx.author.id),
-                                     file=discord.File("playground/{}.log".format(ctx.message.id)))
+                msg = await ctx.reply(file=discord.File("playground/{}.log".format(ctx.message.id)))
                 await msg.add_reaction("🗑️")
                 await self.log(ctx.message.id, lang)
 
