@@ -1,0 +1,14 @@
+FROM alpine:3.13.2
+
+ARG MESSAGE_ID
+
+RUN apk add zsh
+
+RUN adduser -D execbot
+USER execbot
+
+WORKDIR /usr/src/app
+
+COPY ./playground/$MESSAGE_ID.zsh ./main.zsh
+
+CMD ["/bin/zsh", "main.zsh"]

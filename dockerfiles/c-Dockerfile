@@ -1,0 +1,16 @@
+FROM alpine:3.13.2
+
+RUN apk add gcc
+RUN apk add musl-dev
+
+ARG MESSAGE_ID
+
+RUN adduser -D execbot
+USER execbot
+
+WORKDIR /usr/src/app
+
+COPY ./playground/$MESSAGE_ID.c ./main.c
+
+RUN gcc -g -Wall main.c -o main
+CMD [ "./main" ]
