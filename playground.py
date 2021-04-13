@@ -98,7 +98,7 @@ class Playground(commands.Cog):
                 self.dockerHost.images.build(path="./",
                                              dockerfile="dockerfiles/{}-Dockerfile".format(lang),
                                              buildargs={"MESSAGE_ID": str(ctx.message.id)},
-                                             tag="exec/" + str(ctx.message.id),
+                                             tag="execbot/" + str(ctx.message.id),
                                              forcerm=True)
             except docker.errors.BuildError:
                 await ctx.message.remove_reaction("⏳", ctx.guild.me)
@@ -108,7 +108,7 @@ class Playground(commands.Cog):
                 os.remove("playground/{}.{}".format(ctx.message.id, lang))
                 return
 
-            container = self.dockerHost.containers.run("exec/" + str(ctx.message.id),
+            container = self.dockerHost.containers.run("execbot/" + str(ctx.message.id),
                                                        name=str(ctx.message.id),
                                                        auto_remove=False,
                                                        stdout=True,

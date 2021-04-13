@@ -3,10 +3,12 @@ FROM python:3.9.2-alpine3.13
 ARG MESSAGE_ID
 
 RUN adduser -D execbot
-USER execbot
 
 WORKDIR /usr/src/app
 
 COPY ./playground/$MESSAGE_ID.py ./main.py
+
+RUN chown execbot:execbot ./main.py
+USER execbot
 
 CMD ["python", "./main.py" ]

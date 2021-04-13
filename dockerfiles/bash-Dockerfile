@@ -5,10 +5,12 @@ ARG MESSAGE_ID
 RUN apk add bash
 
 RUN adduser -D execbot
-USER execbot
 
 WORKDIR /usr/src/app
 
 COPY ./playground/$MESSAGE_ID.bash ./main.bash
+
+RUN chown execbot:execbot ./main.bash
+USER execbot
 
 CMD ["/bin/bash", "main.bash"]

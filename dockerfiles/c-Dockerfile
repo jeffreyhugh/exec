@@ -6,11 +6,14 @@ RUN apk add musl-dev
 ARG MESSAGE_ID
 
 RUN adduser -D execbot
-USER execbot
 
 WORKDIR /usr/src/app
 
 COPY ./playground/$MESSAGE_ID.c ./main.c
 
 RUN gcc -g -Wall main.c -o main
+
+RUN chown execbot:execbot ./main
+USER execbot
+
 CMD [ "./main" ]

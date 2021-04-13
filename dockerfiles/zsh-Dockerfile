@@ -5,10 +5,12 @@ ARG MESSAGE_ID
 RUN apk add zsh
 
 RUN adduser -D execbot
-USER execbot
 
 WORKDIR /usr/src/app
 
 COPY ./playground/$MESSAGE_ID.zsh ./main.zsh
+
+RUN chown execbot:execbot ./main.zsh
+USER execbot
 
 CMD ["/bin/zsh", "main.zsh"]
