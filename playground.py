@@ -37,16 +37,24 @@ class Playground(commands.Cog):
 
         self.logger = Logger()
 
+        self.lang_emojis = {"py": "<:python:831113611107368970>",
+                            "go": "<:go:831114835852918815>",
+                            "c": "<:c_:831116196660903987>",
+                            "rs": "<:rust:831116517679693825>",
+                            "bash": "<:bash:831116845133332500>",
+                            "zsh": "<:bash:831116845133332500>"}
+
     async def log(self, message_id, language):
         self.c.execute('''INSERT INTO playground
                         (executed_at, message_id, lang)
                         VALUES(?, ?, ?)''', (datetime.datetime.now().timestamp(), str(message_id), language.lower()))
         self.conn.commit()
 
-        e = discord.Embed(title="exec log", description="new snippet executed", color=discord.Color(9510889),
+        emoji = self.lang_emojis[language.lower()]
+        if emoji is None:
+            emoji = "?"
+        e = discord.Embed(title="{} {}".format(emoji, message_id), color=discord.Color(9510889),
                           timestamp=datetime.datetime.now())
-        e.add_field(name="language", value=language, inline=False)
-        e.add_field(name="message id", value=message_id, inline=False)
         e.set_footer(text="exec", icon_url="https://cdn.discordapp.com/avatars/830972631917789265"
                                                "/5e97d058954d564c39b6e1d91ad09e39.png")
         await self.logger.log_embed(e)
