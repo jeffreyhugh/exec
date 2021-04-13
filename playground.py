@@ -157,8 +157,7 @@ class Playground(commands.Cog):
             else:
                 await ctx.message.remove_reaction("⏳", ctx.guild.me)
                 await ctx.message.add_reaction("✅")
-                msg = await ctx.reply(file=discord.File("playground/{}.log".format(ctx.message.id)))
-                await msg.add_reaction("🗑️")
+                await ctx.reply(file=discord.File("playground/{}.log".format(ctx.message.id)))
                 await self.log(ctx.message.id, lang)
 
             try:
@@ -175,32 +174,3 @@ class Playground(commands.Cog):
             await ctx.send("You may only run one instance of this command at a time.")
         else:
             raise error
-
-    @commands.Cog.listener("on_raw_reaction_add")
-    async def _on_raw_reaction_add(self, payload):
-        guild = self.bot.get_guild(payload.guild_id)
-        channel = guild.get_channel(payload.channel_id)
-        if channel is not None:
-            message = channel.get_partial_message(payload.message_id)
-        else:
-            # DM
-            return
-
-        user_id = payload.user_id
-        emoji = payload.emoji
-
-        if emoji.name != "🗑️":
-            return
-
-        message = await message.fetch()
-        if message.author.id != self.bot.user.id:
-            return
-
-        target = await guild.fetch_member(user_id)
-        if target is None:
-            return
-
-        if target in message.mentions:
-            await message.edit(content="<@{}> [redacted]".format(target.id))
-
-        return

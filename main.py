@@ -13,11 +13,13 @@ def main():
         from status import Status
         from playground import Playground
         from ticker import Ticker
+        from info import Info
 
         bot.add_cog(Help(bot))
         bot.add_cog(Status(bot))
         bot.add_cog(Playground(bot))
         bot.add_cog(Ticker(bot))
+        bot.add_cog(Info(bot))
 
     else:
         print("Unknown environment ({})".format(env))
