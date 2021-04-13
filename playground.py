@@ -94,7 +94,7 @@ class Playground(commands.Cog):
 
             if lang == "" or code == "":
                 await ctx.message.add_reaction("❌")
-                await ctx.send("Unknown language. Please use a formatted code block (e.g. ` ```c`).")
+                await ctx.reply("Unknown language. Please use a formatted code block (e.g. ` ```c`).")
                 return
 
             await ctx.message.add_reaction("⏳")
@@ -110,9 +110,9 @@ class Playground(commands.Cog):
                                              tag="execbot/" + str(ctx.message.id),
                                              forcerm=True)
             except docker.errors.BuildError:
-                await ctx.message.remove_reaction("⏳", ctx.guild.me)
+                await ctx.message.remove_reaction("⏳", ctx.me)
                 await ctx.message.add_reaction("❌")
-                await ctx.send("Your code failed to compile. Please double-check syntax and try again.")
+                await ctx.reply("Your snippet failed to compile. Please double-check syntax and try again.")
 
                 os.remove("playground/{}.{}".format(ctx.message.id, lang))
                 return
@@ -151,11 +151,11 @@ class Playground(commands.Cog):
                     break
 
             if was_killed:
-                await ctx.message.remove_reaction("⏳", ctx.guild.me)
+                await ctx.message.remove_reaction("⏳", ctx.me)
                 await ctx.message.add_reaction("❌")
-                await ctx.reply("Your program was terminated because it took too long".format(ctx.author.id))
+                await ctx.reply("Your snippet was terminated because it took too long".format(ctx.author.id))
             else:
-                await ctx.message.remove_reaction("⏳", ctx.guild.me)
+                await ctx.message.remove_reaction("⏳", ctx.me)
                 await ctx.message.add_reaction("✅")
                 await ctx.reply(file=discord.File("playground/{}.log".format(ctx.message.id)))
                 await self.log(ctx.message.id, lang)
@@ -171,6 +171,6 @@ class Playground(commands.Cog):
     async def _exec_error(self, ctx, error):
         if isinstance(error, commands.errors.MaxConcurrencyReached):
             await ctx.message.add_reaction("❌")
-            await ctx.send("You may only run one instance of this command at a time.")
+            await ctx.reply("You may only run one instance of this command at a time.")
         else:
             raise error
