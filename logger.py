@@ -11,3 +11,8 @@ class Logger:
         async with aiohttp.ClientSession() as session:
             webhook = Webhook.from_url(self.logging_webhook, adapter=AsyncWebhookAdapter(session))
             await webhook.send(embed=embed)
+
+    async def log_string(self, s):
+        async with aiohttp.ClientSession() as session:
+            webhook = Webhook.from_url(self.logging_webhook, adapter=AsyncWebhookAdapter(session))
+            await webhook.send(s)

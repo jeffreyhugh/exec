@@ -53,11 +53,12 @@ class Playground(commands.Cog):
         emoji = self.lang_emojis[language.lower()]
         if emoji is None:
             emoji = "?"
-        e = discord.Embed(title="{} {}".format(emoji, message_id), color=discord.Color(9510889),
-                          timestamp=datetime.datetime.now())
-        e.set_footer(text="exec", icon_url="https://cdn.discordapp.com/avatars/830972631917789265"
-                                               "/5e97d058954d564c39b6e1d91ad09e39.png")
-        await self.logger.log_embed(e)
+
+        #e = discord.Embed(title="{} {}".format(emoji, message_id), color=discord.Color(9510889),
+        #                  timestamp=datetime.datetime.now())
+        #e.set_footer(text="exec", icon_url="https://cdn.discordapp.com/avatars/830972631917789265"
+        #                                       "/5e97d058954d564c39b6e1d91ad09e39.png")
+        await self.logger.log_string(emoji)
 
     @commands.command(name="ute")
     @commands.max_concurrency(1, commands.BucketType.user, wait=False)
