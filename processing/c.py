@@ -7,9 +7,9 @@ def _c(code):
 #include <stdlib.h>
 #include <math.h>
 
-int main() {
+int main() {{
   {}
-}"""
+}}"""
 
     if r.search(code):
         return code
