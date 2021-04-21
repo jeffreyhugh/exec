@@ -1,0 +1,14 @@
+FROM 15.14.0-alpine3.11
+
+ARG MESSAGE_ID
+
+RUN adduser -D execbot
+
+WORKDIR /usr/src/app
+
+COPY ./playground/$MESSAGE_ID.js ./main.js
+
+RUN chown -R execbot:execbot ./
+USER execbot
+
+CMD ["node", "./main.js"]
