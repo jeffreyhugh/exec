@@ -12,6 +12,8 @@ import datetime
 
 from logger import Logger
 
+from processing.c import _c
+
 
 def get_logs_from_container(container, save_name):
     container.wait()
@@ -98,6 +100,10 @@ class Playground(commands.Cog):
                 return
 
             await ctx.message.add_reaction("⏳")
+
+            # add default code (#include, etc) if it doesn't have it
+            if lang == "c":
+                code = _c(code)
 
             os.makedirs("playground", exist_ok=True)
             with open("playground/{}.{}".format(ctx.message.id, lang), mode="w") as f:

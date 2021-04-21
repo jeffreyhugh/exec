@@ -10,7 +10,7 @@ WORKDIR /usr/src/app
 
 COPY ./playground/$MESSAGE_ID.bash ./main.bash
 
-RUN chown execbot:execbot ./main.bash
+RUN chown -R execbot:execbot ./
 USER execbot
 
 CMD ["/bin/bash", "main.bash"]

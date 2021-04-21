@@ -10,7 +10,7 @@ COPY ./playground/$MESSAGE_ID.go ./main.go
 
 RUN go build main.go
 
-RUN chown execbot:execbot ./main
+RUN chown -R execbot:execbot ./
 USER execbot
 
 CMD [ "./main" ]

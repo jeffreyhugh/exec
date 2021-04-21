@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 
 COPY ./playground/$MESSAGE_ID.py ./main.py
 
-RUN chown execbot:execbot ./main.py
+RUN chown -R execbot:execbot ./
 USER execbot
 
 CMD ["python", "./main.py" ]

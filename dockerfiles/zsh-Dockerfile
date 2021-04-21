@@ -10,7 +10,7 @@ WORKDIR /usr/src/app
 
 COPY ./playground/$MESSAGE_ID.zsh ./main.zsh
 
-RUN chown execbot:execbot ./main.zsh
+RUN chown -R execbot:execbot ./
 USER execbot
 
 CMD ["/bin/zsh", "main.zsh"]
