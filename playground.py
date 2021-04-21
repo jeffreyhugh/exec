@@ -44,7 +44,8 @@ class Playground(commands.Cog):
                             "c": "<:c_:831116196660903987>",
                             "rs": "<:rust:831116517679693825>",
                             "bash": "<:bash:831116845133332500>",
-                            "zsh": "<:bash:831116845133332500>"}
+                            "zsh": "<:bash:831116845133332500>",
+                            "js": "<:nodejs:834358450309300265>"}
 
     async def log(self, message_id, language):
         self.c.execute('''INSERT INTO playground
