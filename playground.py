@@ -12,7 +12,7 @@ import datetime
 
 from logger import Logger
 
-from processing.c import _c
+from code_processing import _processing
 
 
 def get_logs_from_container(container, save_name):
@@ -103,7 +103,7 @@ class Playground(commands.Cog):
 
             # add default code (#include, etc) if it doesn't have it
             if lang == "c":
-                code = _c(code)
+                code = _processing(code=code, lang=lang)
 
             os.makedirs("playground", exist_ok=True)
             with open("playground/{}.{}".format(ctx.message.id, lang), mode="w") as f:
