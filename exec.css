@@ -1,0 +1,96 @@
+* {
+    font-family: 'Arimo', sans-serif;
+    background-color: lightgrey;
+}
+
+a {
+    color: black;
+    background-color: transparent;
+    text-decoration: underline;
+    transition: 0.5s;
+}
+
+a:hover {
+    color: #911fe9;
+    transition: 0.5s;
+}
+
+.modern {
+    alignment: center;
+    margin-left: 30%;
+    margin-right: 30%;
+    text-align: justify;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    padding-left: 15%;
+    padding-right: 15%;
+    flex-grow: 0;
+}
+
+.child {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+.header_container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.header_text {
+    max-width: 90%;
+    text-align: left;
+    flex-grow: 10;
+}
+
+.bar {
+    float: left;
+    background-color: #911fe9;
+    width: 5px;
+    height: 50%;
+    vertical-align: center;
+    padding-left: 0;
+    max-width: 5px;
+}
+
+.code {
+    padding: 3px;
+    font-family: 'IBM Plex Mono', monospace;
+    background-color: darkgray;
+    color: #911fe9;
+}
+
+.code_inline {
+    padding-right: 3px;
+    padding-left: 3px;
+    font-family: 'IBM Plex Mono', monospace;
+    background-color: darkgray;
+    color: #911fe9;
+}
+
+.padded {
+    padding: 10px;
+}
+
+.txt {
+    padding: 3px;
+}
+
+.popout {
+    box-shadow: 0 0 5px black;
+    transition: 0.5s;
+}
+
+.popout:hover {
+    box-shadow: 0 0 20px black;
+    transition: 0.5s;
+}
+
+.rounded {
+    border-radius: 50%;
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Arimo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet"><link rel="stylesheet" href="exec.css">
+    <meta charset="UTF-8">
+    <title>exec</title>
+</head>
+<body>
+<div class="modern">
+    <div class="container">
+        <div class="child">
+            <div class="padded"></div>
+            <div class="header_container">
+                <div class="bar"></div>
+                <h2 class="header_text">
+                    <a href="https://discord.com/oauth2/authorize?client_id=830972631917789265&scope=bot"><u>exec</u></a> runs code snippets straight from Discord
+                </h2>
+            </div>
+            <div class="txt">(possibly coming soon to Slack and Teams)</div>
+            <div class="padded"></div>
+            <div class="padded"></div>
+            <div>exec supports Python, Go, C, Rust, Bash, and NodeJS.</div>
+            <div class="padded"></div>
+            <div>Each execution runs completely isolated in its own container, detached from all networks, for a maximum of 45 seconds.</div>
+            <div class="padded"></div>
+            <div>To run a snippet, type <span class="code_inline">execute </span> (note the space) followed by a <a href="https://gist.github.com/matthewzring/9f7bbfd102003963f9be7dbcf7d40e51#syntax-highlighting">syntax-highlighted code block</a>.</div>
+            <div class="padded"></div>
+            <div>Once the code is finished executing, the entire <span class="code_inline">.log</span> file will be posted.</div>
+
+            <div class="padded container">
+                <a href="https://queue.bot/t/vpskkvpg.png" target="_blank">
+                    <img class="popout" src="https://queue.bot/t/vpskkvpg.png" width=100% alt="click me!">
+                </a>
+            </div>
+
+            <div class="padded"></div>
+            <div>If you do not explicitly declare <span class="code_inline">main()</span> in your C, Go, or Rust code, exec will wrap it for you. Of course, if you declare <span class="code_inline">main()</span>, exec will run it as-is.</div>
+            <div class="padded"></div>
+            <div class="code">
+                // input.c <br>
+                printf("exec is awesome!\n");<br>
+            </div>
+            <div class="padded"></div>
+            <div class="code">
+                // input.c (wrapped) <br>
+                #include &lt;stdio.h&gt;<br>
+                #include &lt;stdlib.h&gt;<br>
+                #include &lt;math.h&gt;<br>
+                #include &lt;string.h&gt;<br>
+                <br>
+                int main() {<br>
+                &emsp;printf("exec is awesome!\n");<br>
+                }
+            </div>
+
+            <div class="padded"></div>
+            <div class="padded"></div>
+            <div class="code">
+                // input.go <br>
+                fmt.Printf("exec is awesome!\n")<br>
+            </div>
+            <div class="padded"></div>
+            <div class="code">
+                // input.go (wrapped) <br>
+                package main<br>
+                <br>
+                import (<br>
+                &emsp;"fmt"<br>
+                &emsp;"math"<br>
+                &emsp;"strings"<br>
+                )<br>
+                <br>
+                var _, _ = fmt.Printf("")<br>
+                var _ = math.Abs(1)<br>
+                var _ = strings.ToLower("")<br>
+                <br>
+                func main() {<br>
+                &emsp;fmt.Printf("exec is awesome!\n")<br>
+                }
+            </div>
+
+            <div class="padded"></div>
+            <div class="padded"></div>
+            <div class="code">
+                // input.rs <br>
+                println!("exec is awesome!");
+            </div>
+            <div class="padded"></div>
+            <div class="code">
+                // input.rs (wrapped) <br>
+                fn main() {<br>
+                &emsp;println!("exec is awesome!");<br>
+                }
+            </div>
+
+            <div class="padded"></div>
+            <div class="header_container">
+                <div class="bar"></div>
+                <h2 class="header_text">
+                    Ready to try exec? <a href="https://discord.com/oauth2/authorize?client_id=830972631917789265&scope=bot">Invite the bot.</a>
+                </h2>
+            </div>
+
+            <div class="padded container">
+                <img src="execlogo.png" width=75 class="rounded">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
