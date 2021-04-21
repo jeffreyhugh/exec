@@ -12,11 +12,17 @@ int main() {{
   {}
 }}""",
         "go": """package main
+        
 import (
   "fmt"
   "math"
   "strings"
 )
+
+var _, _ = fmt.Printf("")
+var _ = math.Abs(1)
+var _ = strings.ToLower("")
+
 func main() {{
     {}
 }}""",
