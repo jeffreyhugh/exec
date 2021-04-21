@@ -102,8 +102,7 @@ class Playground(commands.Cog):
             await ctx.message.add_reaction("⏳")
 
             # add default code (#include, etc) if it doesn't have it
-            if lang == "c":
-                code = _processing(code=code, lang=lang)
+            code = _processing(code=code, lang=lang)
 
             os.makedirs("playground", exist_ok=True)
             with open("playground/{}.{}".format(ctx.message.id, lang), mode="w") as f:
