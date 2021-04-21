@@ -8,9 +8,7 @@ WORKDIR /usr/src/app
 
 COPY ./playground/$MESSAGE_ID.rs ./main.rs
 
-RUN rustc ./main.rs
-
 RUN chown -R execbot:execbot ./
 USER execbot
 
-CMD [ "./main" ]
+ENTRYPOINT rustc main.rs && ./main
