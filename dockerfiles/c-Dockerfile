@@ -16,4 +16,5 @@ RUN gcc -g -Wall -lm main.c -o main
 RUN chown -R execbot:execbot ./
 USER execbot
 
-CMD [ "gcc", "-g", "-Wall", "-lm", "main.c", "-o", "main", "&&", "./main" ]
+CMD [ "gcc", "-g", "-Wall", "-lm", "main.c", "-o", "main" ]
+CMD [ "./main" ]
