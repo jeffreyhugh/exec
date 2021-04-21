@@ -27,7 +27,7 @@ func main() {{
 
     regexes = {
         "c": "(?:int|void) main\(.*\)",
-        "go": "func main\(.*)\)",
+        "go": "func main\(.*\)",
         "rs": "fn main\(.*\)"
     }
 
