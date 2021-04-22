@@ -16,18 +16,21 @@ a:hover {
 }
 
 .modern {
-    alignment: center;
-    margin-left: 30%;
-    margin-right: 30%;
+    /*alignment: center;*/
+    /*margin-left: 30%;*/
+    /*margin-right: 30%;*/
     text-align: justify;
+    display: flex;
+    justify-content: space-between;
 }
 
 .container {
     display: flex;
     justify-content: center;
-    padding-left: 15%;
-    padding-right: 15%;
-    flex-grow: 0;
+    /*padding-left: 15%;*/
+    /*padding-right: 15%;*/
+    flex-shrink: 1;
+    flex-grow: 2;
 }
 
 .child {
@@ -62,7 +65,8 @@ a:hover {
     padding: 3px;
     font-family: 'IBM Plex Mono', monospace;
     background-color: darkgray;
-    color: #911fe9;
+    color: #59138e;
+    text-align: left;
 }
 
 .code_inline {
@@ -70,7 +74,7 @@ a:hover {
     padding-left: 3px;
     font-family: 'IBM Plex Mono', monospace;
     background-color: darkgray;
-    color: #911fe9;
+    color: #59138e;
 }
 
 .padded {
@@ -93,4 +97,11 @@ a:hover {
 
 .rounded {
     border-radius: 50%;
+}
+
+.modern-padder {
+    display: flex;
+    flex-shrink: 1;
+    flex-grow: 1;
+    width: 55%;
 }

@@ -11,9 +11,7 @@ WORKDIR /usr/src/app
 
 COPY ./playground/$MESSAGE_ID.c ./main.c
 
-RUN gcc -g -Wall -lm main.c -o main
-
 RUN chown -R execbot:execbot ./
 USER execbot
 
-CMD [ "./main" ]
+ENTRYPOINT gcc -g -Wall -lm main.c -o main && ./main
