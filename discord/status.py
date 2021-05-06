@@ -3,7 +3,7 @@ import datetime
 import discord
 from discord.ext import commands
 
-from discord.logger import Logger
+from logger import Logger
 
 
 class Status(commands.Cog):
