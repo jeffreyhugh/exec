@@ -10,9 +10,8 @@ import docker
 import sqlite3
 import datetime
 
-from discord.logger import Logger
-
-from discord.code_processing import _processing
+from logger import Logger
+from code_processing import _processing
 
 
 def get_logs_from_container(container, save_name):
