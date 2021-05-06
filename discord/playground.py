@@ -111,7 +111,7 @@ class Playground(commands.Cog):
                 f.write(code)
 
             try:
-                self.dockerHost.images.build(path="../",
+                self.dockerHost.images.build(path="./",
                                              dockerfile="dockerfiles/{}-Dockerfile".format(lang),
                                              buildargs={"MESSAGE_ID": str(ctx.message.id)},
                                              tag="execbot/" + str(ctx.message.id),
