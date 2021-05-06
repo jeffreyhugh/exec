@@ -10,9 +10,9 @@ import docker
 import sqlite3
 import datetime
 
-from logger import Logger
+from discord.logger import Logger
 
-from code_processing import _processing
+from discord.code_processing import _processing
 
 
 def get_logs_from_container(container, save_name):
@@ -112,7 +112,7 @@ class Playground(commands.Cog):
                 f.write(code)
 
             try:
-                self.dockerHost.images.build(path="./",
+                self.dockerHost.images.build(path="../",
                                              dockerfile="dockerfiles/{}-Dockerfile".format(lang),
                                              buildargs={"MESSAGE_ID": str(ctx.message.id)},
                                              tag="execbot/" + str(ctx.message.id),
@@ -177,7 +177,7 @@ class Playground(commands.Cog):
 
     @_exec.error
     async def _exec_error(self, ctx, error):
-        if isinstance(error, commands.errors.MaxConcurrencyReached):
+        if isinstance(error, discord.ext.commands.errors.MaxConcurrencyReached):
             await ctx.message.add_reaction("❌")
             await ctx.reply("You may only run one instance of this command at a time.")
         else:

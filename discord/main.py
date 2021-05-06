@@ -9,11 +9,11 @@ def main():
 
     env = os.getenv("EXECBOT_ENV_TYPE")
     if env.upper() == "MASTER":
-        from help import Help
-        from status import Status
-        from playground import Playground
-        from ticker import Ticker
-        from info import Info
+        from discord.help import Help
+        from discord.status import Status
+        from discord.playground import Playground
+        from discord.ticker import Ticker
+        from discord.info import Info
 
         bot.add_cog(Help(bot))
         bot.add_cog(Status(bot))

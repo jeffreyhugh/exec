@@ -23,6 +23,6 @@ To run a snippet, type `execute ` (note the space) followed by a [syntax-highlig
 exec supports {}. 
 """.format(langs)
         e = discord.Embed(color=discord.Color(9510889), description=description)
-        e.set_footer(text="exec@queue.bot", icon_url="https://cdn.discordapp.com/avatars/830972631917789265"
+        e.set_footer(text="queue.bot/exec", icon_url="https://cdn.discordapp.com/avatars/830972631917789265"
                                            "/5e97d058954d564c39b6e1d91ad09e39.png")
         await ctx.send(embed=e)
