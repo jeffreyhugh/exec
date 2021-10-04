@@ -4,3 +4,6 @@ venv
 venv/*
 launcher.sh
 *.db
+__pycache__/
+discord/__pycache__
+processing
