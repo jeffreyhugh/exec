@@ -97,6 +97,8 @@ class Playground(commands.Cog):
 
             i += 1
 
+        print("*******HERE lang = ", lang)
+
         if lang == "" or code == "":
             await ctx.message.add_reaction("❌")
             await ctx.reply("Unknown language. Please use a formatted code block (e.g. ` ```c`).")
