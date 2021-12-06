@@ -3,6 +3,15 @@ import re
 
 def _processing(lang, code):
     defaults = {
+        "cpp": """#include <iostream>
+#include <cstdlib>
+#include <cmath>
+#include <cstring>
+using namespace std;
+
+int main() {{
+    {}
+}}""",
         "c": """#include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -28,23 +37,14 @@ func main() {{
 }}""",
         "rs": """fn main() {{
     {}
-}}""",
-        "cpp": """#include <iostream>
-#include <cstdlib>
-#include <cmath>
-#include <cstring>
-using namespace std;
-
-int main() {{
-    {}
 }}"""
     }
 
     regexes = {
+        "cpp": "(?:int|void) main\(.*\)",
         "c": "(?:int|void) main\(.*\)",
         "go": "func main\(.*\)",
-        "rs": "fn main\(.*\)",
-        "cpp": "(?:int|void) main\(.*\)"
+        "rs": "fn main\(.*\)"
     }
 
     try:

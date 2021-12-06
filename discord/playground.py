@@ -71,21 +71,21 @@ class Playground(commands.Cog):
         lang = ""
         # TODO read from JSON
         regexes = ["```(?:python|py)([\s\S]*?)```",
+                    "```(?:c\+\+|cpp)([\s\S]*?)```",
                     "```(?:c)([\s\S]*?)```",
                     "```(?:golang|go)([\s\S]*?)```",
                     "```(?:bash|sh)([\s\S]*?)```",
                     "```(?:zsh)([\s\S]*?)```",
                     "```(?:rust|rs)([\s\S]*?)```",
-                    "```(?:javascript|js)([\s\S]*?)```",
-                    "```(?:c\+\+|cpp)([\s\S]*?)```"]
+                    "```(?:javascript|js)([\s\S]*?)```"]
         langs = ["py",
+                    "cpp"
                     "c",
                     "go",
                     "bash",
                     "zsh",
                     "rs",
-                    "js",
-                    "cpp"]
+                    "js"]
         i = 0
         while i < len(regexes):
             r = re.compile(regexes[i])
