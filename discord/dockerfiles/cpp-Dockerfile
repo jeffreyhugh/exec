@@ -1,0 +1,17 @@
+FROM alpine:3.13.2
+
+RUN apk add g++
+RUN apk add musl-dev
+
+ARG MESSAGE_ID
+
+RUN adduser -D execbot
+
+WORKDIR /usr/src/app
+
+COPY ./playground/$MESSAGE_ID.cpp ./main.cpp
+
+RUN chown -R execbot:execbot ./
+USER execbot
+
+ENTRYPOINT g++ -g -Wall -lm main.cpp -o main && ./main
