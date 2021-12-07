@@ -79,7 +79,7 @@ class Playground(commands.Cog):
                     "```(?:rust|rs)([\s\S]*?)```",
                     "```(?:javascript|js)([\s\S]*?)```"]
         langs = ["py",
-                    "cpp"
+                    "cpp",
                     "c",
                     "go",
                     "bash",
@@ -96,9 +96,7 @@ class Playground(commands.Cog):
                 break
 
             i += 1
-
-        print("*******HERE lang = ", lang, langs[i])
-
+            
         if lang == "" or code == "":
             await ctx.message.add_reaction("❌")
             await ctx.reply("Unknown language. Please use a formatted code block (e.g. ` ```c`).")
