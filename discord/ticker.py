@@ -14,8 +14,7 @@ class Ticker(commands.Cog):
     async def ticker_loop(self):
         m = self.fix_message(self.ticker_messages[self.index % len(self.ticker_messages)])
         await self.bot.change_presence(activity=discord.Game(m))
-        if self.index % len(self.ticker_messages) == 0:
-            self.index = 0
+        self.index %= len(self.ticker_messages)
         self.index += 1
 
     def fix_message(self, message):
