@@ -97,7 +97,7 @@ class Playground(commands.Cog):
 
             i += 1
 
-        print("*******HERE lang = ", lang)
+        print("*******HERE lang = ", lang, langs[i])
 
         if lang == "" or code == "":
             await ctx.message.add_reaction("❌")
