@@ -41,10 +41,10 @@ func main() {{
     }
 
     regexes = {
-        "cpp": "(?:int|void) main\(.*\)",
-        "c": "(?:int|void) main\(.*\)",
-        "go": "func main\(.*\)",
-        "rs": "fn main\(.*\)"
+        "cpp": "(?:int|void) main(?:\s*)\(.*\)",
+        "c": "(?:int|void) main(?:\s*)\(.*\)",
+        "go": "func main(?:\s*)\(.*\)",
+        "rs": "fn main(?:\s*)\(.*\)"
     }
 
     try:
