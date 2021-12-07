@@ -14,6 +14,7 @@ from logger import Logger
 from code_processing import _processing
 
 
+# Define a separate function so it can be run on a different thread
 def get_logs_from_container(container, save_name):
     container.wait()
 
@@ -48,6 +49,7 @@ class Playground(commands.Cog):
                             "cpp": "<:cpp:917582153544507442>"}
 
     async def log(self, message_id, language):
+        """Store the message ID and language in the database for statistical purposes"""
         self.c.execute('''INSERT INTO playground
                         (executed_at, message_id, lang)
                         VALUES(?, ?, ?)''', (datetime.datetime.now().timestamp(), str(message_id), language.lower()))
@@ -57,10 +59,6 @@ class Playground(commands.Cog):
         if emoji is None:
             emoji = "?"
 
-        #e = discord.Embed(title="{} {}".format(emoji, message_id), color=discord.Color(9510889),
-        #                  timestamp=datetime.datetime.now())
-        #e.set_footer(text="exec", icon_url="https://cdn.discordapp.com/avatars/830972631917789265"
-        #                                       "/5e97d058954d564c39b6e1d91ad09e39.png")
         await self.logger.log_string(emoji)
 
     @commands.command(name="ute")

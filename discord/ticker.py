@@ -6,7 +6,7 @@ class Ticker(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.index = 0
-        self.ticker_messages = ["@exec help | {{guilds}} guilds"]
+        self.ticker_messages = ["@exec help | {{guilds}} guilds | github.com/qbxt/exec"]
 
         self.ticker_loop.start()
 
