@@ -44,7 +44,8 @@ class Playground(commands.Cog):
                             "rs": "<:rust:831116517679693825>",
                             "bash": "<:bash:831116845133332500>",
                             "zsh": "<:bash:831116845133332500>",
-                            "js": "<:nodejs:834358450309300265>"}
+                            "js": "<:nodejs:834358450309300265>",
+                            "cpp": "<:cpp:917582153544507442>"}
 
     async def log(self, message_id, language):
         self.c.execute('''INSERT INTO playground
@@ -96,7 +97,7 @@ class Playground(commands.Cog):
                 break
 
             i += 1
-            
+
         if lang == "" or code == "":
             await ctx.message.add_reaction("❌")
             await ctx.reply("Unknown language. Please use a formatted code block (e.g. ` ```c`).")
