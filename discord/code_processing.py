@@ -21,7 +21,7 @@ int main() {{
   {}
 }}""",
         "go": """package main
-        
+
 import (
   "fmt"
   "math"
@@ -41,10 +41,10 @@ func main() {{
     }
 
     regexes = {
-        "cpp": "(?:int|void) main(?:\s*)\(.*\)",
-        "c": "(?:int|void) main(?:\s*)\(.*\)",
-        "go": "func main(?:\s*)\(.*\)",
-        "rs": "fn main(?:\s*)\(.*\)"
+        "cpp": "(?:int|void) main(?:\\s*)\\(.*\\)",
+        "c": "(?:int|void) main(?:\\s*)\\(.*\\)",
+        "go": "func main(?:\\s*)\\(.*\\)",
+        "rs": "fn main(?:\\s*)\\(.*\\)"
     }
 
     try:
