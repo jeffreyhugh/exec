@@ -53,9 +53,9 @@ func main() {{
     except KeyError:
         return code
 
-    r = re.compile(regex)
+    r = re.compile(regex, re.IGNORECASE)
 
-    if r.search(code, re.IGNORECASE):
+    if r.search(code):
         return code
     else:
         return default.format(code)
