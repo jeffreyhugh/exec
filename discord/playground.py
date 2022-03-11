@@ -76,7 +76,8 @@ class Playground(commands.Cog):
                     "```(?:bash|sh)([\s\S]*?)```",
                     "```(?:zsh)([\s\S]*?)```",
                     "```(?:rust|rs)([\s\S]*?)```",
-                    "```(?:javascript|js)([\s\S]*?)```"]
+                    "```(?:javascript|js)([\s\S]*?)```",
+                    "```(?:java)([\s\S]*?)```"]
         langs = ["py",
                     "cpp",
                     "c",
@@ -84,7 +85,8 @@ class Playground(commands.Cog):
                     "bash",
                     "zsh",
                     "rs",
-                    "js"]
+                    "js",
+                    "java"]
         i = 0
         while i < len(regexes):
             r = re.compile(regexes[i])

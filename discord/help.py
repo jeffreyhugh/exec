@@ -13,10 +13,11 @@ class Help(commands.Cog):
         self.bash = "<:bash:831116845133332500>"
         self.js = "<:nodejs:834358450309300265>"
         self.cpp = "<:cpp:917582153544507442>"
+        self.java = "java" # TODO: get me a java discord emoji
 
     @commands.command(name="help")
     async def _help(self, ctx):
-        langs = "{}, {}, {}, {}, {}, {}, and {}".format(self.python, self.go, self.c, self.rust, self.bash, self.js, self.cpp)
+        langs = "{}, {}, {}, {}, {}, {}, {}, and {}".format(self.python, self.go, self.java, self.c, self.rust, self.bash, self.js, self.cpp)
         description = """exec runs code snippets straight from Discord. Each snippet is completely isolated in its own container and runs for a maximum of 45 seconds.
 
 To run a snippet, type `execute ` (note the space) followed by a [syntax-highlighted code block](https://gist.github.com/matthewzring/9f7bbfd102003963f9be7dbcf7d40e51#syntax-highlighting) (e.g. Python is ` ```py`). After the code inside the block finishes running, the entire `.log` file will be posted.

@@ -37,14 +37,24 @@ func main() {{
 }}""",
         "rs": """fn main() {{
     {}
-}}"""
+}}""",
+        "java": """import java.io.*;
+import java.util.*;
+import java.util.concurrent.*;
+
+public class Main {
+        public static void main(String[] args) {{
+            {}
+        }}
+}"""
     }
 
     regexes = {
         "cpp": "(?:int|void) main(?:\s*)\(.*\)",
         "c": "(?:int|void) main(?:\s*)\(.*\)",
         "go": "func main(?:\s*)\(.*\)",
-        "rs": "fn main(?:\s*)\(.*\)"
+        "rs": "fn main(?:\s*)\(.*\)",
+        "java": "public static void main(?:\s*)\(.*\)"
     }
 
     try:
@@ -56,6 +66,13 @@ func main() {{
     r = re.compile(regex, re.IGNORECASE)
 
     if r.search(code):
+        # if we're using java...
+        if (lang == "java"):
+            # change the class name to Main
+            code = re.sub("(?<=(public class ))(([A-Z]|[a-z])*)", "Main", code, count=1)
+            # and remove any package declaration
+            code = re.sub("package (.*)", "", code, count=1)
+        
         return code
     else:
         return default.format(code)
