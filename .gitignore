@@ -7,3 +7,4 @@ launcher.sh
 __pycache__/
 discord/__pycache__
 processing
+discord/playground/*
