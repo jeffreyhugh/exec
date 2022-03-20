@@ -47,7 +47,8 @@ class Playground(commands.Cog):
                             "zsh": "<:bash:831116845133332500>",
                             "js": "<:nodejs:834358450309300265>",
                             "cpp": "<:cpp:917582153544507442>",
-                            "java": "<:java:955167082658558024>"}
+                            "java": "<:java:955167082658558024>",
+                            "hs": "<:haskell:955167472850464768>"}
 
     async def log(self, message_id, language):
         """Store the message ID and language in the database for statistical purposes"""
@@ -78,7 +79,8 @@ class Playground(commands.Cog):
                    "```(?:zsh)([\s\S]*?)```",
                    "```(?:rust|rs)([\s\S]*?)```",
                    "```(?:javascript|js)([\s\S]*?)```",
-                   "```(?:java)([\s\S]*?)```"]
+                   "```(?:java)([\s\S]*?)```",
+                   "```(?:haskell|hs)([\s\S]*?)```"]
         langs = ["py",
                  "cpp",
                  "c",
@@ -87,7 +89,8 @@ class Playground(commands.Cog):
                  "zsh",
                  "rs",
                  "js",
-                 "java"]
+                 "java",
+                 "hs"]
         i = 0
         while i < len(regexes):
             r = re.compile(regexes[i])

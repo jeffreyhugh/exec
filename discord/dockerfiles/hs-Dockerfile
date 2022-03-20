@@ -1,0 +1,14 @@
+FROM haskell:9-slim-buster
+
+ARG MESSAGE_ID
+
+RUN adduser --no-create-home execbot
+
+WORKDIR /usr/src/app
+
+COPY ./playground/$MESSAGE_ID.hs ./main.hs
+
+RUN chown -R execbot:execbot ./
+USER execbot
+
+ENTRYPOINT ghc -v0 main && ./main
