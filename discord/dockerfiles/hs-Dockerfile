@@ -1,4 +1,4 @@
-FROM haskell:9-buster
+FROM haskell:9-slim-buster
 
 ARG MESSAGE_ID
 
