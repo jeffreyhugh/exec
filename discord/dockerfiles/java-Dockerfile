@@ -1,0 +1,14 @@
+FROM openjdk:17
+
+ARG MESSAGE_ID
+
+RUN useradd -m execbot
+
+WORKDIR /usr/src/app
+
+COPY ./playground/$MESSAGE_ID.java ./Main.java
+
+RUN chown -R execbot:execbot ./
+USER execbot
+
+ENTRYPOINT javac Main.java && java Main

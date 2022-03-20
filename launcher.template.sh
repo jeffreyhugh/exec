@@ -1,7 +1,9 @@
 #!/bin/sh
 
 export EXECBOT_DISCORD_TOKEN=""
-export EXECBOT_ENV_TYPE=""
+export EXECBOT_ENV_TYPE="MASTER"
 export EXECBOT_LOGGING_WEBHOOK=""
 
-python main.py
+mkdir -p discord/playground
+
+cd discord && python main.py
