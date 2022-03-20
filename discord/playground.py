@@ -48,7 +48,7 @@ class Playground(commands.Cog):
                             "js": "<:nodejs:834358450309300265>",
                             "cpp": "<:cpp:917582153544507442>",
                             "java": "<:java:955167082658558024>",
-                            "hs": "<:haskell:310831928360304653>"}
+                            "hs": "<:haskell:955167472850464768>"}
 
     async def log(self, message_id, language):
         """Store the message ID and language in the database for statistical purposes"""

@@ -13,7 +13,7 @@ class Help(commands.Cog):
         self.bash = "<:bash:831116845133332500>"
         self.js = "<:nodejs:834358450309300265>"
         self.cpp = "<:cpp:917582153544507442>"
-        self.haskell = "<:haskell:310831928360304653>"
+        self.haskell = "<:haskell:955167472850464768>"
         self.java = "<:java:955167082658558024>"
 
     @commands.command(name="help")
