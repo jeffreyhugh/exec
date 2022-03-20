@@ -46,7 +46,8 @@ class Playground(commands.Cog):
                             "bash": "<:bash:831116845133332500>",
                             "zsh": "<:bash:831116845133332500>",
                             "js": "<:nodejs:834358450309300265>",
-                            "cpp": "<:cpp:917582153544507442>"}
+                            "cpp": "<:cpp:917582153544507442>",
+                            "java": "java"}
 
     async def log(self, message_id, language):
         """Store the message ID and language in the database for statistical purposes"""
@@ -76,7 +77,8 @@ class Playground(commands.Cog):
                     "```(?:bash|sh)([\s\S]*?)```",
                     "```(?:zsh)([\s\S]*?)```",
                     "```(?:rust|rs)([\s\S]*?)```",
-                    "```(?:javascript|js)([\s\S]*?)```"]
+                    "```(?:javascript|js)([\s\S]*?)```",
+                    "```(?:java)([\s\S]*?)```"]
         langs = ["py",
                     "cpp",
                     "c",
@@ -84,7 +86,8 @@ class Playground(commands.Cog):
                     "bash",
                     "zsh",
                     "rs",
-                    "js"]
+                    "js",
+                    "java"]
         i = 0
         while i < len(regexes):
             r = re.compile(regexes[i])
@@ -116,7 +119,8 @@ class Playground(commands.Cog):
                                             buildargs={"MESSAGE_ID": str(ctx.message.id)},
                                             tag="execbot/" + str(ctx.message.id),
                                             forcerm=True)
-        except docker.errors.BuildError:
+        except docker.errors.BuildError as e:
+            self.logger.error(repr(e))
             await ctx.message.remove_reaction("⏳", ctx.me)
             await ctx.message.add_reaction("❌")
             await ctx.reply("Your snippet failed to compile. Please double-check syntax and try again.")
