@@ -47,7 +47,7 @@ class Playground(commands.Cog):
                             "zsh": "<:bash:831116845133332500>",
                             "js": "<:nodejs:834358450309300265>",
                             "cpp": "<:cpp:917582153544507442>",
-                            "java": "java"}
+                            "java": "<:java:955167082658558024>"}
 
     async def log(self, message_id, language):
         """Store the message ID and language in the database for statistical purposes"""
@@ -71,23 +71,23 @@ class Playground(commands.Cog):
         lang = ""
         # TODO read from JSON
         regexes = ["```(?:python|py)([\s\S]*?)```",
-                    "```(?:c\+\+|cpp)([\s\S]*?)```",
-                    "```(?:c)([\s\S]*?)```",
-                    "```(?:golang|go)([\s\S]*?)```",
-                    "```(?:bash|sh)([\s\S]*?)```",
-                    "```(?:zsh)([\s\S]*?)```",
-                    "```(?:rust|rs)([\s\S]*?)```",
-                    "```(?:javascript|js)([\s\S]*?)```",
-                    "```(?:java)([\s\S]*?)```"]
+                   "```(?:c\+\+|cpp)([\s\S]*?)```",
+                   "```(?:c)([\s\S]*?)```",
+                   "```(?:golang|go)([\s\S]*?)```",
+                   "```(?:bash|sh)([\s\S]*?)```",
+                   "```(?:zsh)([\s\S]*?)```",
+                   "```(?:rust|rs)([\s\S]*?)```",
+                   "```(?:javascript|js)([\s\S]*?)```",
+                   "```(?:java)([\s\S]*?)```"]
         langs = ["py",
-                    "cpp",
-                    "c",
-                    "go",
-                    "bash",
-                    "zsh",
-                    "rs",
-                    "js",
-                    "java"]
+                 "cpp",
+                 "c",
+                 "go",
+                 "bash",
+                 "zsh",
+                 "rs",
+                 "js",
+                 "java"]
         i = 0
         while i < len(regexes):
             r = re.compile(regexes[i])
@@ -115,10 +115,12 @@ class Playground(commands.Cog):
 
         try:
             self.dockerHost.images.build(path="./",
-                                            dockerfile="dockerfiles/{}-Dockerfile".format(lang),
-                                            buildargs={"MESSAGE_ID": str(ctx.message.id)},
-                                            tag="execbot/" + str(ctx.message.id),
-                                            forcerm=True)
+                                         dockerfile="dockerfiles/{}-Dockerfile".format(
+                                             lang),
+                                         buildargs={
+                                             "MESSAGE_ID": str(ctx.message.id)},
+                                         tag="execbot/" + str(ctx.message.id),
+                                         forcerm=True)
         except docker.errors.BuildError as e:
             self.logger.error(repr(e))
             await ctx.message.remove_reaction("⏳", ctx.me)
@@ -129,19 +131,20 @@ class Playground(commands.Cog):
             return
 
         container = self.dockerHost.containers.run("execbot/" + str(ctx.message.id),
-                                                    name=str(ctx.message.id),
-                                                    auto_remove=False,
-                                                    stdout=True,
-                                                    stderr=True,
-                                                    detach=True,
-                                                    cpu_shares=512,
-                                                    mem_limit="512m",
-                                                    device_write_bps=[{"Path": "/dev/sda", "Rate": 500000}],
-                                                    network_disabled=True)
+                                                   name=str(ctx.message.id),
+                                                   auto_remove=False,
+                                                   stdout=True,
+                                                   stderr=True,
+                                                   detach=True,
+                                                   cpu_shares=512,
+                                                   mem_limit="512m",
+                                                   device_write_bps=[
+                                                       {"Path": "/dev/sda", "Rate": 500000}],
+                                                   network_disabled=True)
 
         t = threading.Thread(target=get_logs_from_container,
-                                name=str(ctx.message.id),
-                                args=(container, ctx.message.id))
+                             name=str(ctx.message.id),
+                             args=(container, ctx.message.id))
         t.daemon = True
         t.start()
 

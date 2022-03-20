@@ -69,10 +69,11 @@ public class Main {{
         # if we're using java...
         if (lang == "java"):
             # change the class name to Main
-            code = re.sub("(?<=(public class ))(([A-Z]|[a-z])*)", "Main", code, count=1)
+            code = re.sub(
+                "(?<=(public class ))(([A-Z]|[a-z])*)", "Main", code, count=1)
             # and remove any package declaration
             code = re.sub("package (.*)", "", code, count=1)
-        
+
         return code
     else:
         return default.format(code)

@@ -9,10 +9,12 @@ class Logger:
 
     async def log_embed(self, embed):
         async with aiohttp.ClientSession() as session:
-            webhook = Webhook.from_url(self.logging_webhook, adapter=AsyncWebhookAdapter(session))
+            webhook = Webhook.from_url(
+                self.logging_webhook, adapter=AsyncWebhookAdapter(session))
             await webhook.send(embed=embed)
 
     async def log_string(self, s):
         async with aiohttp.ClientSession() as session:
-            webhook = Webhook.from_url(self.logging_webhook, adapter=AsyncWebhookAdapter(session))
+            webhook = Webhook.from_url(
+                self.logging_webhook, adapter=AsyncWebhookAdapter(session))
             await webhook.send(s)
